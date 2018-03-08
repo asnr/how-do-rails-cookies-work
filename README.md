@@ -88,6 +88,25 @@ Here
 
 ## If we have the secret base key, can we forge signed cookies and decrypt encypted cookies?
 
+Can forge signed cookies: see 'attack_signed_cookies.rb'.
+Can decrypt encrypted cookies: see 'attack_encrypted_cookies.rb'.
+
 ## What are the default attributes of the cookie header? (Secure, HTTPOnly? Expiry?)
 
+By default, the only directive that is set is `path=/`, which doesn't do a whole lot. (This documented in http://api.rubyonrails.org/classes/ActionDispatch/Cookies.html.)
+
+You have to set other directives manually:
+
+``` ruby
+cookies.encrypted[:foo] = {
+                            value: 'bar',
+                            expires: 1.year.from.now,
+                            secure: true,
+                            httponly: true,
+                          }
+```
+
+If you don't manually set the expiry the cookie will be wiped when the browser is closed, unless the user has set the browser to remember tabs when it is opened again ("Show your windows and tabs from last time" on Firefox and "Continue where I left off" on Chrome), in which case they will be persisted to disk after the browser is closed.
+
 ## Same question as above, but for when the ActiveRecord session store is being used.
+
