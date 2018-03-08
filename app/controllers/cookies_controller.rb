@@ -16,6 +16,12 @@ class CookiesController < ApplicationController
     render html: "Consider your cookies deleted.\n".freeze
   end
 
+  def show
+    @plain_cookie = cookies[:plain]
+    @signed_cookie = cookies.signed[:signed]
+    @encrypted_cookie = cookies.encrypted[:encrypted]
+  end
+
   private
 
   def delete_all_cookies

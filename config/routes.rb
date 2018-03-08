@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/set-cookies', to: 'cookies#set_cookies'
   get '/reset-cookies', to: 'cookies#reset_cookies'
   get '/delete-cookies', to: 'cookies#delete_cookies'
+  get '/show-cookies', to: 'cookies#show'
 end
