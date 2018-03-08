@@ -1,8 +1,6 @@
-# If we have the secret base key, can we forge signed cookies and decrypt
-# encypted cookies?
+# If we have the secret base key, can we forge signed cookies?
 
 require 'net/http'
-require 'cgi'
 require 'base64'
 require 'openssl'
 require 'active_support/all'
