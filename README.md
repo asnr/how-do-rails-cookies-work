@@ -27,6 +27,8 @@ The rack request variable `signed_cookie_salt` is defined in action_dispatch/rai
 `cookies.signed` does its thing with this code:
 
 ``` ruby
+# active_support/message_verifier.rb
+
 def generate(value)
   data = encode(@serializer.dump(value))
   "#{data}--#{generate_digest(data)}"
