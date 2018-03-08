@@ -1,4 +1,4 @@
-class CookieController < ApplicationController
+class CookiesController < ApplicationController
   def set_cookies
     cookies[:plain] = 'Some unencrypted value'.freeze
     cookies.signed[:signed] = 'Some signed value'.freeze
