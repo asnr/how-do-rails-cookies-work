@@ -106,7 +106,10 @@ cookies.encrypted[:foo] = {
                           }
 ```
 
+There has been some talk of making `httponly` the default for new apps, but the discussion fizzled out, see the [Github issue](https://github.com/rails/rails/issues/1449) and the [Google group](https://groups.google.com/forum/#!topic/rubyonrails-core/yDzoifkfqvc).
+
 If you don't manually set the expiry the cookie will be wiped when the browser is closed, unless the user has set the browser to remember tabs when it is opened again ("Show your windows and tabs from last time" on Firefox and "Continue where I left off" on Chrome), in which case they will be persisted to disk after the browser is closed.
 
 ## Same question as above, but for when the ActiveRecord session store is being used.
 
+By default, when using `CookieStore` session storage, both the `path=/` and `httponly` directives are set.

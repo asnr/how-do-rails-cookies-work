@@ -3,6 +3,7 @@ class CookiesController < ApplicationController
     cookies[:plain] = 'Some unencrypted value'.freeze
     cookies.signed[:signed] = 'Some signed value'.freeze
     cookies.encrypted[:encrypted] = 'Some encrypted value'.freeze
+    session[:my_session_id] = 5924
     render html: "Consider your cookies set.\n".freeze
   end
 
